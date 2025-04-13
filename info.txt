@@ -1,0 +1,105 @@
+✅ La estructura de archivos del blog con Next.js 13+ usando la carpeta app:
+
+/napcom
+│── /app
+│   │── /api
+│   │   └── /news
+│   │       └── route.js       # API Route para obtener noticias
+│   │── /components
+│   │   ├── Navbar.js          # Barra de navegación
+│   │   ├── Footer.js          # Pie de página
+│   │   ├── NewsCard.js        # Componente para mostrar noticias
+│   │── /styles
+│   │   └── globals.css        # Estilos globales
+│   │── layout.js              # Layout global (envoltorio de la web)
+│   │── page.js                # Página principal (Inicio)
+│   │── /news
+│   │   ├── page.js            # Página de listado de noticias
+│   │   ├── [id]               # Carpeta dinámica para noticias individuales
+│   │   │   └── page.js        # Página de detalle de una noticia
+│   │── /about
+│   │   └── page.js            # Página "Acerca de"
+│── /public
+│   ├── logo.png               # Logo del blog
+│── /utils
+│   └── fetchNews.js           # Función para obtener noticias
+│── tailwind.config.js         # Configuración de TailwindCSS
+│── next.config.js             # Configuración de Next.js
+│── package.json               # Dependencias del proyecto
+│── README.md                  # Documentación del proyecto
+
+Explicación de cada carpeta y archivo
+Aquí tienes una explicación detallada de cada parte de la estructura:
+
+1️⃣ Carpeta /app (Directorio principal de la app)
+layout.js: Define la estructura global de la web (por ejemplo, incluir Navbar y Footer en todas las páginas).
+
+page.js: Es la página principal del blog (Inicio).
+
+/news/page.js: Una página que lista todas las noticias.
+
+/news/[id]/page.js: Página dinámica que muestra una noticia específica según su id.
+
+/about/page.js: Página "Acerca de" con información sobre el blog.
+
+2️⃣ Carpeta /app/api (Para crear API Routes)
+/api/news/route.js: Esta API obtiene noticias de una fuente externa y las devuelve en formato JSON.
+
+3️⃣ Carpeta /app/components (Componentes reutilizables)
+Navbar.js: Menú de navegación principal.
+
+Footer.js: Pie de página.
+
+NewsCard.js: Tarjeta para mostrar noticias en la lista de noticias.
+
+4️⃣ Carpeta /app/styles (Estilos globales)
+globals.css: Archivo donde se importan los estilos de TailwindCSS.
+
+5️⃣ Carpeta /public (Recursos estáticos como imágenes)
+logo.png: Imagen del logo del blog.
+
+6️⃣ Carpeta /utils (Funciones auxiliares)
+fetchNews.js: Función para obtener noticias desde la API.
+
+
+✅Importante:
+
+En Next.js 13+ con "App Router" (el sistema basado en app/), todos los archivos dentro de app/ se tratan como componentes del lado del servidor por defecto.
+
+Los hooks como useState, useEffect y useContext solo funcionan en el cliente, por lo que necesitas marcar explícitamente el archivo para que se ejecute en el lado del cliente con "use client".
+
+🧱UTILIZAR SERVER COMPONENTS/RENDERIZADO DESDE EL SERVIDOR:
+
+⚡ Fetch en el servidor (async en el componente de página) ⚡
+✅ Ventajas:
+
+Mejor SEO (el contenido ya viene cargado).
+
+Carga inicial más rápida para el usuario.
+
+Menos manejo de estado (loading, error).
+
+❌ Desventajas:
+
+No podés usar hooks (useEffect, useState).
+
+No podés acceder a localStorage, window, etc.
+
+Menos flexible para interacciones dinámicas.
+
+⚡ Fetch en el cliente (useEffect, React Query, SWR) ⚡
+✅ Ventajas:
+
+Permite interactividad y uso de hooks.
+
+Acceso a APIs del navegador (localStorage, navigator, etc.).
+
+Ideal para contenido que cambia seguido.
+
+❌ Desventajas:
+
+Peor para SEO (el contenido llega después).
+
+Tenés que manejar loading, error, etc.   
+
+Más lento en la carga inicial.

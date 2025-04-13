@@ -1,0 +1,17 @@
+/*  Tailwind v4 ya no usa @tailwind base/components/utilities.
+    Ahora se importa todo desde un solo lugar */
+@import "tailwindcss";
+
+/* Estilos generales */
+.body_styles{
+  /* Cuando usás Next.js, todos los archivos en la carpeta /public se sirven desde la raíz /, así que solo ponés el nombre del archivo directamente, sin /public. */
+  background-image: url('/background.png'); /* o la ruta que usaste */
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Para que sea fijo al hacer scroll */
+  background-color: #000; /* fallback si la imagen no carga */
+}
+.card{
+  cursor: pointer;
+}
