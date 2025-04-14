@@ -1,31 +1,35 @@
-import axios from "axios";
+// 📁 /utils/fetchNews.js
+// Paso 1: Obtener noticias básicas desde NewsData.io
+import axios from 'axios';
 
-const NEWS_API_KEY = process.env.NEWSDATA_API_KEY; // ⚠️ Guarda tu API key en .env
+const NEWS_API_KEY = process.env.NEWSDATA_API_KEY;
 
 export async function fetchNews() {
   try {
-    const response = await axios.get("https://newsdata.io/api/1/news", {
+    const { data } = await axios.get('https://newsdata.io/api/1/news', {
       params: {
         apikey: NEWS_API_KEY,
-        language: "es",
-        category: "entertainment",
-        q: "videojuegos", // Puedes cambiar a: gaming, consolas, etc.
-        country: "es",    // O "mx", "ar", etc. si quieres filtrar
-      }
+        q: 'videojuegos OR gaming OR e-sports',
+        language: 'es',
+        category: 'technology',
+        country: 'es,us,mx',
+      },
     });
-
-    const news = response.data.results.map((item) => ({
+    // Adaptar estructura para el frontend
+    return (data.results || []).map((item) => ({
+      id: item.article_id,
       title: item.title,
-      description: item.description,
-      image: item.image_url || "/no-image.jpg", // Por si no tiene imagen
-      link: item.link,
-      source: item.source_id,
-      date: item.pubDate
+      publish_date: item.pubDate,
+      deck: item.description,
+      image: {
+        original: item.image_url,
+      },
+      categories: item.category ? item.category.map((cat) => ({ name: cat })) : [],
+      site_detail_url: item.link,
     }));
-
-    return news;
   } catch (error) {
-    console.error("Error al obtener noticias:", error);
+    console.error('Error al obtener noticias:', error);
     return [];
   }
 }
+

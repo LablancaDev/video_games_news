@@ -1,7 +1,7 @@
 //📂 Backend
 // API de noticias, Obtiene todas las noticias desde una API externa y las envía al frontend.
 // ⬅️ Devuelve TODAS las noticias 
-import { fetchNews } from "../../../utils/fetchNews";
+import { fetchNews } from "../../../utils/fetchNewsData";
 
 export async function GET() {
   try {

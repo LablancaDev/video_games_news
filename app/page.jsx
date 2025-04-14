@@ -9,7 +9,7 @@ cliente y que puede utilizar hooks como useEffect y useState.*/
 import NewsCard from "./components/NewsCard";
 
 // Función para obtener las noticias desde la API
-async function getNews() {
+async function getNews() { 
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/news`);
   if (!res.ok) {
     throw new Error("Error al obtener noticias");
@@ -39,3 +39,11 @@ export default async function NewsPage() {
   }
 }
 
+/*
+FLUJO DESEADO
+[1] fetchNews()                   => Llama a NewsData.io con axios ✅
+[2] /api/news                     => API interna que devuelve todas las noticias ✅
+[3] /api/news/[id]                => Scrapea y traduce una noticia por ID ✅
+[4] NewsPage & NewsCard           => Listado de tarjetas ✅
+[5] [id]/page.jsx                 => Página de detalle por noticia ✅
+*/ 
