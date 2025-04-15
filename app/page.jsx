@@ -22,13 +22,15 @@ async function getNews() {
 export default async function NewsPage() {
   try {
     const news = await getNews(); // Llamamos a la API en el servidor
-
+    
+    console.log('Array de Noticias:', news);
+    
     return (
       <div>
         <h1 className="text-3xl text-center text-white font-bold my-4">Todas las Noticias</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-3"> {/*grid: Activa el diseño en cuadrícula. grid-cols-1: En pantallas pequeñas, habrá 1 columna. md:grid-cols-3: En pantallas medianas (768px o más), habrá 3 columnas.*/}
-          {news.map((item) => (
-            <NewsCard key={item.id} news={item} />
+          {news.map((item) => ( 
+            <NewsCard key={item.id} news={item} />  
           ))} 
         </div>
       </div>
@@ -47,3 +49,4 @@ FLUJO DESEADO
 [4] NewsPage & NewsCard           => Listado de tarjetas ✅
 [5] [id]/page.jsx                 => Página de detalle por noticia ✅
 */ 
+

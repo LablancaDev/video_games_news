@@ -1,6 +1,6 @@
-
 // 📁 /app/api/news/[id]/route.js
 // Paso 2: Scraping + traducción + cacheado por ID
+// ❌ Eliminar  Ya no hay endpoint individual.
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
