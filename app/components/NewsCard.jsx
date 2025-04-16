@@ -19,6 +19,8 @@ const NewsCard = ({ news }) => {
     news.image?.screen_tiny ||
     "/placeholder.jpg";
 
+    console.log("🧾 ID noticia:", news.id);
+
   return (
     <div className="bg-indigo-100 dark:bg-indigo-900 rounded-xl shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.02] overflow-hidden border border-indigo-300 dark:border-indigo-700 flex flex-col h-full card">
       {/* Imagen superior */}
@@ -42,9 +44,9 @@ const NewsCard = ({ news }) => {
         </h2>
 
         {/* Descripción */}
-        <p className="text-sm text-indigo-800 dark:text-indigo-200 mb-2">
+        {/* <p className="text-sm text-indigo-800 dark:text-indigo-200 mb-2">
           {news.deck}
-        </p>
+        </p> */}
 
         {/* Categorías */}
         {news.categories?.length > 0 && (

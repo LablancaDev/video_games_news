@@ -103,3 +103,45 @@ Peor para SEO (el contenido llega después).
 Tenés que manejar loading, error, etc.   
 
 Más lento en la carga inicial.
+
+
+🔁 Flujo de datos desde el backend hasta el frontend:
+
+📁 /utils/fetchNews.js
+✔️ Usa axios para llamar a newsdata.io con filtros.
+✔️ Adapta correctamente los campos (article_id, pubDate, image_url, etc).
+
+📁 /api/news/route.js
+✔️ Llama a fetchNews()
+✔️ Retorna la respuesta con status: 200.
+
+🧠 getNews() en NewsPage.jsx
+✔️ Hace fetch a ${process.env.NEXT_PUBLIC_BASE_URL}/api/news
+✔️ Retorna la lista de noticias al frontend.
+
+🧱 NewsCard.jsx
+✔️ Mapea bien los campos (imagen, fecha, título, descripción, categorías).
+✔️ Usa news.id para la URL en el botón de "Leer más →".
+
+
+📦 CONSUMO DE API:
+
+-🧱 En la rama Main de github tengo de momento el proyecto cosumiendo la API gamespot
+-🧱 En la rama changeAPI estoy consumiendo la API newsdata ya que tiene menos impedimentos para monetizar
+
+* La petición a newsdata devuelve una estrucutura así:
+  
+    {
+  "results": [
+    {
+      "title": "Título de la noticia",
+      "link": "https://...",
+      "description": "Resumen",
+      "pubDate": "2024-04-12",
+      "image_url": "https://...",
+      "source_id": "marca",
+      "country": "es"
+    }
+  ]
+}
+

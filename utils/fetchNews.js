@@ -1,6 +1,6 @@
 //📂 Backend
 // # Función para obtener noticias
-
+// ❌ De momento no estoy consumiendo esta API ya que tiene más impedimentos para monetizar
 import axios from "axios";
 
 const API_KEY = "dc8efcead89be72234bc09c7f9ccf9a6304932b4"; // Reemplázalo con tu API Key real
