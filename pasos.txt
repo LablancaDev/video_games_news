@@ -1,0 +1,14 @@
+🧠 Siguiente paso: Crear las nuevas rutas de sección
+¿Vamos ahora con una de estas?
+
+/latest → Juegos más recientes
+
+/upcoming → Más esperados
+
+/top → Mejor puntuados
+
+/platforms/switch → Juegos de Switch
+
+Te puedo crear una sola página base para secciones dinámicas (por tipo) o rutas individuales. ¿Qué prefieres para comenzar?
+
+

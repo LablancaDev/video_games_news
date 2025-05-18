@@ -1,0 +1,1 @@
+Sección de videojuegos consumiendo la API RAWG, con detalle del juego al hacer Click, NO SON NOTICIAS

@@ -1,0 +1,50 @@
+Estoy usando Next.js 15 + Turbopack + Server Actions + Server Components.
+
+📂 ESTRUCTURA DE CARPETAS:
+
+    📁/app
+        📁/components
+            📁/rewrite
+                📄route.jsx
+        📁/news
+            📁/[slug]         → Página detalle de la noticia
+                📄 page.js
+        📁/sections
+            📁/[...sections]  → Muestra los videojuegos por plataformas e incorpora Buscador 
+                📄page.jsx    
+                📄ClientGameSection.jsx            
+    📁/components
+        📄NewsCard.jsx
+        📄Dropdown.jsx
+        📄Header.jsx
+        📄Footer.jsx
+    📁/lib
+        📄rawg.js           → Cliente RAWG.io
+        📄gptRewrite.js     → Función para reescritura IA
+        📄seo.js            → Metadata dinámica
+    📁/public
+        📄favicon.ico
+    📁/styles
+        📄globals.css
+    📄.env.local          → API keys (RAWG, Unsplash)
+    📄next.config.js
+    📄tailwind.config.js
+
+⚙️ TECNOLOGÍAS Y LIBRERÍAS
+
+    Área	Tecnología
+    Framework	Next.js 15.2.4 (App Router)
+    Estilos	Tailwind CSS
+    Imágenes	Unsplash API + RAWG.io (trailers, artworks)
+    IA	GPT (puedes usar tu key local o API intermedia)
+    Datos	RAWG.io (fetch desde server actions)
+    SEO	next/metadata y next/seo
+    Monetización	Placeholder para AdSense, Instant Gaming, Amazon
+    Deploy	Vercel o Netlify (te recomiendo Vercel)
+
+
+
+
+
+
+🔁❌⚡✅🧠🧱📦

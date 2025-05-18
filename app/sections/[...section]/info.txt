@@ -1,0 +1,63 @@
+Claro, aquí tienes un **resumen claro y útil** para tus notas sobre cómo interactúan `page.jsx` 
+y `ClientGameSection.jsx` en la ruta `app/sections/[...section]` de un proyecto Next.js con App Router:
+
+---
+
+## 🧾 **Resumen: Interacción entre `page.jsx` y `ClientGameSection.jsx` en Next.js**
+
+### 📁 Ubicación
+Ruta: `app/sections/[...section]/`
+
+### 📄 `page.jsx` – Server Component (por defecto)
+
+**Responsabilidad:**
+- Ejecuta código del lado del servidor.
+- Obtiene datos de la API (`getGamesByPlatform`, `getGamesBySection`).
+- No puede usar hooks como `useState`, `useEffect`.
+- Llama al componente cliente (`ClientGameSection`) y le pasa los datos como props.
+
+**Por qué es un Server Component:**
+- Todos los archivos `page.jsx` en Next.js App Router **son Server Components por defecto**.
+- El uso de `async` para hacer `await` en el fetch también los hace incompatibles con hooks de React.
+
+---
+
+### 📄 `ClientGameSection.jsx` – Client Component
+
+**Responsabilidad:**
+- Se encarga de la interactividad: búsqueda (`useState`, `useEffect`).
+- Recibe los datos de juegos desde el Server Component como props.
+- Renderiza dinámicamente los juegos filtrados según la búsqueda del usuario.
+
+**Por qué es un Client Component:**
+- Está marcado con `"use client"`.
+- Usa hooks (`useState`, `useEffect`), que **solo se permiten en Client Components**.
+
+---
+
+## ❗ Por qué hay que separar el código en dos archivos
+
+### ✅ Razones técnicas:
+1. **Hooks no funcionan en Server Components**.
+2. `"use client"` no puede convivir con `async` en la misma función.
+3. **Next.js necesita saber qué parte del código se ejecuta en el cliente y cuál en el servidor**.
+
+### ✅ Beneficios:
+- Permite usar `fetch` eficiente del lado del servidor.
+- Mantiene la interactividad en el cliente (mejor UX).
+- Aprovecha el renderizado híbrido de Next.js.
+
+---
+
+## 🧩 Ejemplo de interacción:
+
+1. `page.jsx` recibe los parámetros de la URL y hace `fetch` de los juegos apropiados.
+2. Pasa esos juegos a `ClientGameSection` como `props`.
+3. `ClientGameSection.jsx` los muestra, permite buscar y filtra con `useState` y `useEffect`.
+
+---
+
+Aquí tienes un resumen visual que muestra cómo interactúan page.jsx y ClientGameSection.jsx
+en la ruta /app/sections/[...section] y por qué se separan.
+
+    -ver archivo ChactGPT Image
