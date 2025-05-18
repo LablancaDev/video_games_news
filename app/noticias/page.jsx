@@ -186,6 +186,7 @@ export default function NoticiasPage() {
                   </div>
                 </Link>
               </SwiperSlide>
+              
             ))}
           </Swiper>
         </section>
