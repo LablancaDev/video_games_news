@@ -110,7 +110,12 @@ export default function Header() {
 
           {/* Menú escritorio */}
           <div className="hidden md:flex space-x-6 items-center text-lg font-medium relative">
+            {/* <input type="search" name="" id="" className="bg-blue-600 rounded p-2 w-full text-white"/> */}
             <NavLink className="text-sm font-medium hover:underline" href="/noticias">Noticias</NavLink>
+            <NavLink className="text-sm font-medium hover:underline" href="/lanzamientos">Lanzamientos</NavLink>
+            <NavLink className="text-sm font-medium hover:underline" href="/noticias">Análisis</NavLink>
+            {/* <NavLink className="text-sm font-medium hover:underline" href="/noticias">Gameplays</NavLink>
+            <NavLink className="text-sm font-medium hover:underline" href="/noticias">Top juegos</NavLink> */}
             <NavLink href="/retro">Retro</NavLink>
             {/* Las opciones de navegación, como "Retro", "Categorías" y "Plataformas", se pasan como props a un componente Dropdown. */}
             <Dropdown label="Categorías" items={categoryItems} />
@@ -121,8 +126,13 @@ export default function Header() {
         {/* Menú móvil */}
         {isOpen && (
           <div className="md:hidden flex flex-col space-y-4 mt-4 pb-4 text-center">
-            <NavLink href="/retro" onClick={toggleMenu}>Retro</NavLink>
             <NavLink className="text-sm font-medium hover:underline" href="/noticias">Noticias</NavLink>
+            <NavLink className="text-sm font-medium hover:underline" href="/lanzamientos">Lanzamientos</NavLink>
+            <NavLink className="text-sm font-medium hover:underline" href="/noticias">Análisis</NavLink>
+            {/* <input type="search" name="" id="" className="bg-blue-600 rounded p-2 w-full text-white"/>
+            <NavLink className="text-sm font-medium hover:underline" href="/noticias">Gameplays</NavLink>
+            <NavLink className="text-sm font-medium hover:underline" href="/noticias">Top juegos</NavLink> */}
+            <NavLink href="/retro" onClick={toggleMenu}>Retro</NavLink>
             <Dropdown label="Categorías" items={categoryItems} />
             <Dropdown label="Plataformas" items={platformItems} />
           </div>
